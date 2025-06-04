@@ -1,0 +1,63 @@
+@import "../../SCSS/mixins";
+@import "../../SCSS/variables";
+
+.nav {
+  // border: 1px solid red;
+  padding: 1rem 3rem;
+  position: fixed;
+  width: 100%;
+  background: transparent;
+  font-family: $nav-fonts ;
+  z-index: 5;
+
+  .navbar {
+    @include flex(end, 5rem);
+    & .home-nav,
+    .about-nav,
+    .projects-nav,
+    .contact-nav {
+      text-decoration: none;
+      font-size: 2.5rem;
+      color: $secondaryColor;
+      position: relative;
+      font-weight: bold;
+
+      &:after{
+        content: "";
+        width: 0%;
+        height: 2px;
+        background-color: rgb(247, 203, 203);
+        position: absolute;
+        bottom: -10px;
+        left: 0;
+        transition: width 0.3s
+      }
+      
+      &:hover::after {
+        width: 100%; 
+      }
+    }
+    
+  }
+}
+
+@media screen and (max-width:790px) {
+  .navbar {
+    & .home-nav,
+    .about-nav,
+    .projects-nav,
+    .contact-nav {
+      font-size: 1.5rem !important;
+    }
+}}
+@media screen and (max-width:508px) {
+  .navbar {
+    justify-content: center !important;
+    gap: 2rem !important;
+    & .home-nav,
+    .about-nav,
+    .projects-nav,
+    .contact-nav {
+      font-size: 1.2rem !important;
+    }
+}}
